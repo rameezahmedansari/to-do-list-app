@@ -1,0 +1,27 @@
+body {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(242, 154, 13, 0.7),
+    rgba(121, 38, 5, 0.7)
+  );
+}
+
+.task-input {
+  border: none;
+}
+
+.btn-add {
+  background-color: rgb(241, 99, 17);
+}
+
+.btn-add:hover {
+  background-color: rgb(84, 34, 5);
+}
+
+footer {
+  background-color: rgba(241, 99, 17, 0.386);
+}
+
+.alink {
+  text-decoration: none;
+}
