@@ -30,7 +30,11 @@ addTaskBtn.onclick = () => {
     edit_id = null;
   } else {
     // for insert
-    tasksArray.push({ task: task });
+    if (task != "") {
+      tasksArray.push({ task: task });
+    } else {
+      alert("Enter something....");
+    }
   }
 
   SaveInfo(tasksArray); // again saving data to array
@@ -39,7 +43,8 @@ addTaskBtn.onclick = () => {
 };
 
 function SaveInfo(tasksArray) {
-  let str = JSON.stringify(tasksArray); // making our array in string form and saving it to str.
+  let str = JSON.stringify(tasksArray);
+  // making our array in string form and saving it to str.
   localStorage.setItem("tasks", str); // writing data to local storage
   DisplayInfo();
 }
