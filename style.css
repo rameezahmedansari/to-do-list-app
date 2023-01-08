@@ -6,6 +6,9 @@ body {
   );
 }
 
+.display {
+  height: 100%;
+}
 .task-input {
   border: none;
 }

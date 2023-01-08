@@ -19,7 +19,7 @@ if (objStr != null) {
 
 DisplayInfo(); // function to diaplay all the tasks
 
-addTaskBtn.onclick = () => {
+function AddTask() {
   const task = tasksTextField.value;
 
   if (edit_id != null) {
@@ -30,17 +30,27 @@ addTaskBtn.onclick = () => {
     edit_id = null;
   } else {
     // for insert
-    if (task != "") {
+    if (task != "" && tasksArray.length < 10) {
       tasksArray.push({ task: task });
+    } else if (tasksArray.length < 10) {
+      alert("Enter Something....");
     } else {
-      alert("Enter something....");
+      alert("List items cannot exceed more than 10!");
     }
   }
 
   SaveInfo(tasksArray); // again saving data to array
   tasksTextField.value = ""; // after adding to clear the input field
   addTaskBtn.innerText = btnText; // again set add button text to default
-};
+}
+
+addTaskBtn.onclick = AddTask;
+tasksTextField.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    AddTask();
+  }
+});
+// addTaskBtn.onclick = () => {};
 
 function SaveInfo(tasksArray) {
   let str = JSON.stringify(tasksArray);
@@ -72,4 +82,9 @@ function EditInfo(id) {
 function DeleteInfo(id) {
   tasksArray.splice(id, 1); // it will delete 1 item at or from the given index.
   SaveInfo(tasksArray);
+}
+
+function CheckArr() {
+  if (tasksArray.length < 10) {
+  }
 }
